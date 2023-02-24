@@ -37,6 +37,8 @@
                 android:src="@drawable/f5"
                 />
 
+            <RelativeLayout android:layout_width="match_parent"
+                android:layout_height="match_parent" >
             <include
                 layout="@layout/activity1"
                 android:layout_width="wrap_content"
@@ -45,9 +47,20 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:onClick="Messages"
+                android:text="НАЧАТЬ ПОИСК!">
+            </Button>
+            </RelativeLayout>
         </LinearLayout>
 
     </LinearLayout>
+
 
 
 
