@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.LauncherActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -57,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void Messages(View view){
         Log.i(TAG, "Вы нажали на кнопку, декларативно");
+    }
+
+    public void Play(View view){
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
     }
 
 

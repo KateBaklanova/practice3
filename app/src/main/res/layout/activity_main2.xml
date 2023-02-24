@@ -6,4 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity2">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    android:layout_alignParentLeft="true"
+    android:gravity="center"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:layout_constraintLeft_creator="1"
+    tools:layout_constraintRight_creator="1">
+    <EditText
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:editable="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/button"
+        android:hint="Введите название..." >
+    </EditText>
+
+    <TextView
+        android:id="@+id/t2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:src="@raw/love"
+        />
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
