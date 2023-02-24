@@ -6,10 +6,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:src="@raw/lll"
+        />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:background="@color/violet"
             android:orientation="vertical">
 
             <include
@@ -23,8 +31,10 @@
                 />
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:src="@drawable/f5"
                 />
 
             <include
