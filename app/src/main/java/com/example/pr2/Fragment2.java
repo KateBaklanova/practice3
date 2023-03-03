@@ -4,8 +4,11 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,21 +20,28 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Random;
 
 public class Fragment2 extends Fragment {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+
+    public Fragment2() {
+        super(R.layout.fragment2);
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment2, container, false);
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        getChildFragmentManager()
+                .setFragmentResultListener("requestKey", this, new FragmentResultListener() {
+                            @Override
+                            public void onFragmentResult(@NonNull String
+                                                                 requestKey, @NonNull Bundle bundle) {
+                                String result = bundle.getString("bundleKey");
+                            }
+                        });
     }
 
     @Override
@@ -51,6 +61,12 @@ public class Fragment2 extends Fragment {
 
         Random random = new Random();
         Integer b= random.nextInt(3 - 1) + 1;
+
+        getParentFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
+                String result = bundle.getString("bundleKey");
+            }});
 
         TextView text = getView().findViewById(R.id.t2);
         text.setText(c.get(b));
@@ -86,18 +102,9 @@ public class Fragment2 extends Fragment {
                 else{
                     text.setText("НЕВЕРНО");
                 }
-                ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(
-                        new ActivityResultContracts.StartActivityForResult(),
-                        new ActivityResultCallback<ActivityResult>() {
-                            @Override
-                            public void onActivityResult(ActivityResult result) {
-                                // обработка result
-                            }
-                        });
             }
         });
     }
 
-
-
 }
+
