@@ -21,7 +21,7 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.Random;
 
-public class MainActivity2 extends Fragment {
+public class Fragment2 extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
