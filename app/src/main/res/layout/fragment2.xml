@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0FFFF"
+    tools:context="com.example.pr2.MainActivity2">
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,11 +22,11 @@
     app:layout_constraintTop_toTopOf="parent"
     tools:layout_constraintLeft_creator="1"
     tools:layout_constraintRight_creator="1">
+
     <EditText
         android:id="@+id/t1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:editable="true"
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/button"
         android:hint="Введите название..." >
@@ -36,3 +42,4 @@
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -1,6 +1,7 @@
 package com.example.pr2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
 import android.app.LauncherActivity;
@@ -10,32 +11,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Fragment {
     private static final String TAG = "MyApp";
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        Toast toast = Toast.makeText(getApplicationContext(), "Текст", Toast.LENGTH_SHORT);
-        toast.show();
-
+    public MainActivity() {
+        super(R.layout.fragment1);
     }
 
 
-    @Override
-    protected void onResume(){
 
+    public void onResume(){
 
-        setContentView(R.layout.activity_main);
-
-        Toast toast = Toast.makeText(getApplicationContext(), "Текст", Toast.LENGTH_SHORT);
-        toast.show();
         super.onResume();
         Log.d(TAG, "отладка");
         Log.i(TAG, "информация");
@@ -43,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG, "ошибка");
         Log.w(TAG, "предупреждение");
 
-        Button button = (Button) findViewById(R.id.button);
+        Button button = (Button) getView().findViewById(R.id.button);
         button.setOnClickListener( new View.OnClickListener() {
 
             @Override
@@ -61,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Play(View view){
-        Intent intent = new Intent(this, MainActivity2.class);
-        startActivity(intent);
+
     }
 
 
